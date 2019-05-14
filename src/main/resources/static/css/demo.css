@@ -1,0 +1,163 @@
+body{
+    font-family: "Microsoft JhengHei";
+}
+
+.navbar-default{
+    background-color: #fff;
+    border: none;
+    box-shadow: 0px 2px 8px 0px rgba(50,50,50,0.25);
+}
+.navbar-default .navbar-brand{
+    font-size: 30px;
+    font-weight: bold;
+    color: pink;
+    height: 70px;
+    line-height: 35px;
+}
+.navbar-default .navbar-nav>li>a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+    height: 70px;
+    line-height: 35px;
+}
+.navbar-toggle{
+    margin-top: 17px;
+}
+
+.navbar-default.navbar-toggle:hover{
+    border-color: #40D281;
+    background-color: rgb(69,210,184);
+}
+.navbar-default.navbar-toggle.icon-bar{
+    background-color: #1C9982;
+}
+
+#home{
+    margin-top: 70px;
+    background: url("../static/images/2.jpg");
+    text-align: center;
+    width: 100%;
+    background-size: cover;
+    color: #ffffff;
+}
+.red{
+    width: 100%;
+    height: 100%;
+    background: rgba(233, 21, 166, 0.7);
+    padding: 90px 0;
+}
+.lvjing{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 90px 0;
+}
+
+#home h1{
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+#home .carousel-inner img{
+    margin-top: 30px;
+    width: 100%;
+    display: inline-block;
+    background-size: cover;
+}
+#bbs{
+    padding: 80px 0;
+    text-align: center;
+}
+#bbs .col-md-4{
+    padding: 15px;
+}
+#bbs .col-md-4:hover{
+    background: #f1f1f1;
+    box-shadow: 1px 1px 4px #cccccc;
+}
+
+#bbs a {
+    color: #212121;
+}
+#bbs a:hover{
+    text-decoration: none;
+}
+
+#bbs img{
+    margin: 0 auto;
+}
+#bbs h3{
+    font-weight: bold;
+}
+
+/*html5*/
+#html5{
+    background: #f8f8f8;
+    padding: 80px 0;
+}
+
+#html5 h2{
+    font-weight: bold;
+}
+#html5 p{
+    line-height: 40px;
+}
+
+.search2{
+    background:rgb(64,210,177);
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 20px;
+}
+
+#contact{
+    /*margin-top: 70px;*/
+    background: url("/images/13.png") no-repeat;
+    background-size: cover;
+    color: #ffffff;
+
+    /*display: none;*/
+}
+
+#contact h2{
+    font-weight: bold;
+    margin-bottom: 25px;
+    margin-top: 0;
+}
+
+#contact p{
+    line-width:25px;
+}
+
+#contact .form-control{
+    border: none;
+    border-radius: 0;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+#contact textarea.form-control{
+    height: auto;
+}
+
+#contact input[type=submit]{
+    background: #40D2B1;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#contact input[type=submit]:hover{
+    background: rgb(44,142,120);
+}
+
+/*底部*/
+footer{
+    font-weight: 400;
+    text-align: center;
+    padding: 20px;
+}

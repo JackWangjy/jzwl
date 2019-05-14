@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Gallery</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta charset="utf-8" />
+	<meta name="keywords" content="" />
+	<script>
+        $(function(){
+            /*公共部分
+             * 导航栏
+             * footer CopyRight
+             */
+            $(".headerpage").load("head.html");
+            // $(".footerpage").load("footer.html");
+        });
+
+
+        addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //for-mobile-apps -->
+	 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+	 <link href="css/font-awesome.css" rel="stylesheet">
+	   <link rel="stylesheet" href="css/chocolat.css" type="text/css" media="screen"><!-- //Gallery Css -->
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="http://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+	<!--<script src="js/head.js"></script>-->
+
+	<script src="../static/js/jquery-2.2.3.min.js"></script>
+
+
+</head>
+<script>
+    function query() {
+        var orderid = document.getElementById("orderid").value;
+        $.ajax({
+            url:"query",
+            type: "get",
+            data:"orderid="+orderid,
+            success:function (order) {
+                if(order!=null){
+                    document.getElementById("status").value=order.status;
+                }else{
+                    document.getElementById("status").value="查询不到该订单信息或者该订单不存在！";
+                }
+            }
+
+        })
+    }
+
+</script>
+<body>
+
+<div class="headerpage"></div>
+	<section class="banner-1"></section>
+		<!--Gallery-->
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="page-header">
+				<strong class="express-title code">客户服务</strong>
+			</div>
+			<hr>
+			<div class="list-group">
+				<a href="#" class="list-group-item  active">订单查询</a>
+				<a href="/search_website" class="list-group-item" >网点查询</a>
+			</div>
+			<!--<ul class="nav nav-pills nav-stacked">-->
+				<!--<a href="#" class="list-group-item  active">订单查询</a>-->
+				<!--<a href="/order_search" class="list-group-item" >网点查询</a>-->
+			<!--</ul>-->
+		</div>
+		<div class="col-md-7">
+			<div class="page-header">
+				<strong class="express-title code">查询订单</strong>
+			</div>
+			<hr>
+			<form onsubmit="return false;">
+				<div class="modal-body">
+					<div class="form-group col-md-8">
+						<input type="text" id="orderid" name="orderid" class="form-control" placeholder="请输入订单号查询" th:value="${order?.getOrderid()}">
+					</div>
+
+					<div class="form-group">
+						<textarea class="form-control" rows="7" cols="7" id="status" name="status" th:text="${order?.getStatus()}">
+                    </textarea>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left" onclick="query()">点击查询</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-3">
+
+			<div class="express-code">
+				<strong class="express-title code">关注订阅</strong>
+				<hr>
+				<div class="code-cont">
+					<p class="code-hint">想要关注更多信息？扫码订阅，仅需一步!</p>
+					<img src="/images/erweima.jpg" id="subscribeQrCode" />
+					<p>打开微信或支付宝扫描上方二维码即可订阅成功</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<section class="footer py-md-5">
+		<div class="container py-4 mt-2">
+			<div class="row footer_inner_info_w3ls_agileits">
+				<div class="col-md-3 footer-left">
+					<h2><a href="index.html"> 版权拥有</a></h2>
+					<p class="mb-3 mt-3">吉珠速运有限公司</p>
+					<ul class="social-nav footer-social social two">
+						<li>
+							<a href="#">
+								<i class="fab fa-facebook-f" aria-hidden="true"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fab fa-twitter" aria-hidden="true"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fab fa-instagram" aria-hidden="true"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="fab fa-pinterest" aria-hidden="true"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 sign-gd">
+					<h4>业务产品</h4>
+					<ul>
+						<li><a href="index.html">增值业务</a></li>
+						<li><a href="about.html">港台件</a></li>
+						<li><a href="services.html">国际件</a></li>
+						<li><a href="gallery.html">售后服务</a></li>
+						<li><a href="contact.html">商务合作</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 sign-gd flickr-post">
+					<h4 style="font-family: AngsanaUPC">吉珠速运</span></h4>
+					<ul>
+						<li><a href="#"><img src="images/g1.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g2.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g3.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g4.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g5.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g6.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g7.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g8.jpg" alt=" " class="img-fluid" /></a></li>
+						<li><a href="#"><img src="images/g9.jpg" alt=" " class="img-fluid" /></a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 sign-gd-two">
+					<h4>联系方式</h4>
+					<div class="address">
+						<div class="address-grid">
+							<div class="address-left">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+							</div>
+							<div class="address-right">
+								<h6>Phone Number</h6>
+								<p>+020 43962800</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="address-grid">
+							<div class="address-left">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+							</div>
+							<div class="address-right">
+								<h6>Email Address</h6>
+								<p>Email :<a href="mailto:example@email.com"> 2454817543@qq.com</a></p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="address-grid">
+							<div class="address-left">
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+							</div>
+							<div class="address-right">
+								<h6>Location</h6>
+								<p>吉林大学珠海学院.
+
+								</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<p class="copy-right py-3">Copyright &copy; 2018.Company name All rights reserved.</p>
+</footer>
+	<!-- js -->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- //js-->
+	<!-- start-smooth-scrolling -->
+	<script  src="js/move-top.js"></script>
+	<script  src="js/easing.js"></script>
+	<script> 
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+	<!--gallery -->
+	<script src="js/jquery.chocolat.js"></script>
+	<!--light-box-files -->
+	<script type="text/javascript">
+		$(function () {
+			$('.gallery-grid1 a').Chocolat();
+		});
+	</script>
+	<!-- //gallery -->
+
+
+	<!-- smooth-scrolling-of-move-up -->
+	<script> 
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<script  src="js/SmoothScroll.min.js"></script>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	 <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

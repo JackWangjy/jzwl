@@ -1,0 +1,25 @@
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-argument: true
+  params: count=countSql
+
+
+
+
+
+
+
+  #  schema:
+#       - classpath:sql/department.sql
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+#       - classpath:sql/employee.sql
+
+
+thymeleaf:
+  cache: false
+
+#  content-type: text/html
+  mode: HTML5

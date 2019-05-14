@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.mapper.OrderMapper">
+
+<select id="findOrder" resultType="com.it.domian.Order">
+    select * from tbl_order
+
+    <!--<if test="orderid!=''and orderid!=null">-->
+        <!--and orderid =#{arg0}-->
+    <!--</if>-->
+    <!--<if test="sendername!=''and sendername!=null">-->
+        <!--and sendername =#{arg1}-->
+    <!--</if>-->
+    <trim prefix="where" suffixOverrides="and">
+        <if test="orderid != null and orderid != '' ">
+            orderid=#{orderid}
+        </if>
+        <if test="sendername != null and sendername != '' ">
+            and sendername=#{sendername}
+        </if>
+        <if test="recipientname != null and recipientname !='' ">
+            and recipientname=#{recipientname}
+        </if>
+        <!--<if test="gender ==0 or gender ==1">-->
+            <!--and gender=#{gender}-->
+        <!--</if>-->
+    </trim>
+</select>
+</mapper>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Home</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta charset="utf-8" />
+	<meta name="keywords" content="" />
+
+	<script> 
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //for-mobile-apps -->
+	 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+	<!--banner slider  -->
+	<link href="css/JiSlider.css" rel="stylesheet">
+	<!-- //banner-slider -->
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+	 <link href="css/font-awesome.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/demo.css" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+
+</head>
+<script>
+    function addMs()  {
+        $.ajax({
+            url:"/addMs",
+            type:"get",
+            data:"author="+document.getElementById("author").value+"&phone="+document.getElementById("phone").value+"&content="+document.getElementById("content").value,
+            success:function (rs) {
+                if(rs=="true"){
+                    alert("提交成功")
+                    $("#addMs")[0].reset();}
+                else{alert("提交失败")}
+            }
+        })
+    }
+</script>
+<body>
+	<!-- header -->
+	<section class="w3layouts-header py-2">
+		<div class="container">
+			  <!-- header -->
+        <header>
+                <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+
+                    <h1>
+                        <a class="navbar-brand" href="/">
+                          吉珠速运
+                        </a>
+                    </h1>
+                    <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse pull-left" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-lg-auto text-center">
+                            <li class="nav-item active  mr-3">
+                                <a class="nav-link" href="/">主页
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  mr-3">
+                                <a class="nav-link" href="about.html">我要寄件</a>
+                            </li>
+							<li class="nav-item dropdown mr-3">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+								   aria-expanded="false">
+									我的信息
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+									<a class="dropdown-item" href="gallery.html">我的信息</a>
+									<a class="dropdown-item" href="typo.html">修改密码</a>
+									<a class="dropdown-item" href="typo.html">退出</a>
+								</div>
+							</li>
+                            <li class="nav-item dropdown mr-3">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    客户服务
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="search_order">订单查询</a>
+									 <a class="dropdown-item" href="search_website">网点查询</a>
+                                </div>
+                            </li>
+                            <li class="nav-item mr-3">
+                                <a class="nav-link" href="contact.html">登录</a>
+                            </li>
+                            <li class="nav-item">
+                               	<a href="" class="fas fa-phone pr-2">联系客服</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+        </header>
+        <!-- //header -->
+
+		</div>
+	</section>
+	<!-- //header -->
+	<!-- banner -->
+	<section class="banner-silder">
+		<div id="JiSlider" class="jislider">
+			<ul>
+				<li>
+					<div class="banner-top banner-top1">
+						<div class="container">
+							<div class="banner-info info2">
+								<h3>诚信服务</h3>
+								<p>每一次信赖，都是一份感动。</p>
+							</div>
+						</div>
+					</div>
+				</li>
+
+
+				<li>
+					<div class="banner-top banner-top2">
+						<div class="container">
+							<div class="banner-info bg3 info2">
+								<h3>商务合作</h3>
+								<p>助力商家成长，致力于校园服务。</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="banner-top banner-top3">
+						<div class="container">
+							<div class="banner-info bg3">
+								<h3>创业机会</h3>
+								<p>增加校园工作、创业的机会，给学生一份就业、创业信心。</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</section>
+		<!-- //banner -->
+		<!-- banner bottom -->
+		<section class="banner-btm">
+			<div class="container">
+				<div class="row banner-bottom-main">
+					
+						<div class="col-md-4 banner-grid2">
+							<div class="banner-subg1">
+							<span class="fa fa-globe" aria-hidden="true"></span>
+								<h3 class="mt-3">在线寄件</h3>
+								<p class="mt-3 mb-3">给寄件多一份方便，给寄件多一份欢乐</p>
+								
+								<div class="read-btn">
+									<a href="about.html">马上寄件</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 banner-grid2">
+							<div class="banner-subg1">
+							<span class="fa fa-user" aria-hidden="true"></span>
+								<h3 class="mt-3">个人信息</h3>
+								<p class="mt-3 mb-3">查看个人信息</p>
+								
+								<div class="read-btn">
+									<a href="about.html">点击查看</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 banner-btmg">
+							<div class="banner-btmg1">
+								<div class="form-text">
+									<h3 class="text-center">快件追踪</h3>
+									<!--<p class="text-center">Or call one of our customer service</p>-->
+								</div>
+								<form action="get" method="get" class="banner_form">
+									<div class="sec-left">
+										<label class="contact-form-text">输入订单号:</label>
+										<input  name="orderid" id="orderid" type="text">
+									</div>
+									<!--<div class="sec-right">-->
+										<!--<label class="contact-form-text">Moving To</label>-->
+										<!--<input placeholder="Street Address or ZIP code " name="first name" type="text" required="">-->
+									<!--</div>-->
+									<input type="submit" value="查询">
+								</form>
+							</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- //banner bottom -->
+
+<!--写死-->
+	<section class="banner_bottom">
+		<div class="container mt-2">
+			<div class="inner_sec_info_wthree_agile py-5">
+				<div class="row help_full py-sm-4">
+
+					<div class="col-md-6 pt-lg-5 mt-lg-5 banner_bottom_left">
+						<h4>仓配一体化</h4>
+						<p class="mb-3">核心定位：
+
+							致力成为专业的第三方仓储物流供应链服务商，专注为电子商务行业提供仓储、精细加工及配送管理一站式服务。
+
+							用户模式：
+
+							申通仓配主要服务对象为电子商务经营中有仓储、加工、配送需求的商家。包含但不限于电子商务中平台类企业、平台内运营商家、及独立B2C企业等。
+
+
+						</p>
+						<p class="mb-3">产品模式：
+
+							1. 采用专业化仓库。统一高标仓+环氧地坪+消防验收+自动喷淋+24小时动态智能监控+千万级财产保险.库内操作全面支持条码管理和ERP管理，按统一标准化流程及各类手册操作。
+							2.提供一站式服务。帮助客户完成商品入库、质检、存储、分拣、打包、配单、指派、出库、退换货等一系列工作。
+
+						</p>
+						<div class="ab_button">
+							<a class="btn btn-primary btn-lg hvr-underline-from-left" href="#" role="button" >Read More </a>
+						</div>
+
+
+					</div>
+
+					<div class="col-md-6 banner_bottom_grid help">
+						<img src="images/2.png" alt=" " class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+		<!-- testimonials -->
+	<section class="testimonials py-md-5">
+		<div class="container py-4 mt-2">
+			<h3 class="tittle-w3ls text-center mb-3 text-white">客户反馈</h3>
+				<p class="tit text-center mx-auto text-white">您的反馈，都是我们前进的动力！</p>
+
+			<div class="w3_agileits_testimonial_grids pt-4 mt-md-4">
+				<section class="slider">
+					<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<div class="w3_agileits_testimonial_grid">
+									<div class="test-bg-w3ls">
+										<h4>Jack <span></span></h4>
+										<p>吉珠速运不仅能给我们提供方便，还让我觉得了学校也是可以有家的味道.</p>
+									</div>
+									<img src="images/ts1.jpg" alt=" " class="img-responsive" />
+									
+								</div>
+							</li>
+							<li>
+								<div class="w3_agileits_testimonial_grid">
+									<div class="test-bg-w3ls">
+										<h4>Mark <span></span></h4>
+										<p>吉珠速运不仅能给我们提供方便，还让我觉得了学校也是可以有家的味道.</p>
+									</div>
+									<img src="images/ts2.jpg" alt=" " class="img-responsive" />
+								</div>
+							</li>
+							<li>
+								<div class="w3_agileits_testimonial_grid">
+									<div class="test-bg-w3ls">
+										<h4>Mario<span></span></h4>
+										<p>吉珠速运不仅能给我们提供方便，还让我觉得了学校也是可以有家的味道.</p>
+									</div>
+									<img src="images/ts3.jpg" alt=" " class="img-responsive" />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+<!-- //testimonials -->
+<!-- smooth-shipping -->
+	<section class="wthree-row w3-about py-md-5">
+		<div class="container py-4 mt-2">
+			<h3 class="tittle-w3ls text-center mb-3">校园事迹</h3>
+              <div class="card-deck pt-4 mt-md-4">
+				  <div class="card">
+					<img src="images/g1.jpg" class="img-fluid" alt="Card image cap">
+					<div class="card-body w3ls-card">
+					  <h5 class="card-title">我校团委荣获2018-2019年度“广东省五四红旗团委”称号</h5>
+					  <p class="card-text mb-3 ">在五四运动一百周年之际，我校共青团工作传来喜讯，根据共青团广东省委员会文件《关于表彰2018—2019年度广东省优秀共青团员、</p>
+						<div class="ab_button">
+							<a class="btn btn-primary btn-lg hvr-underline-from-left" href="http://www.jluzh.edu.cn/2019/0506/c89a139601/page.htm" role="button" >Read More </a>
+						</div>
+					</div>
+				  </div>
+				  <div class="card">
+					<img src="images/g2.jpg" class="img-fluid" alt="Card image cap">
+					<div class="card-body w3ls-card">
+					  <h5 class="card-title">2019年吉林大学珠海学院参加广东省第十届大学生运动会动员大会</h5>
+					   <p class="card-text mb-3 ">4月30日中午，2019年吉林大学珠海学院参加广东省第十届大学生运动会动员大会在第一教学楼B104举行。吉林大学珠海学院党委委员、副校长黄学寿</p>
+						<div class="ab_button">
+							<a class="btn btn-primary btn-lg hvr-underline-from-left" href="http://www.jluzh.edu.cn/2019/0430/c89a139512/page.htm" role="button" >Read More </a>
+						</div>
+					</div>
+				  </div>
+				  <div class="card">
+					<img src="images/g3.jpg" class="img-fluid" alt="Card image cap">
+					<div class="card-body w3ls-card">
+					  <h5 class="card-title">计算机学院应邀参加东方海外珠海信息技术开发中心开放日活动</h5>
+					   <p class="card-text mb-3 ">2019年5月8日，在教务处刘波老师与计算机学院行政秘书郭享渠的带领下，计算机学院2016级各专业36学生在企业开放日赴东方海外信息技术</p>
+						<div class="ab_button">
+							<a class="btn btn-primary btn-lg hvr-underline-from-left" href="http://www.jluzh.edu.cn/2019/0510/c90a139739/page.htm" role="button" >Read More </a>
+						</div>
+					</div>
+				  </div>
+				</div>
+            </div>
+        </section>
+<!-- //smooth-shipping -->
+<!-- distance -->
+<section class="distance-w3 py-md-5">
+		<div class="container py-4 mt-2">
+			<div class="row">
+				<div class="col-md-8 distance-agile-left">
+					<h4 class="mt-2">有什么问题欢迎致电客户热线</h4>
+				</div>
+				<div class="col-md-4 distance-agile-right">
+					<a href="contact.html">call us 0756-43962800</a>
+				</div>
+			</div>
+         </div>
+</section>
+<!-- //distance -->
+<!-- stats -->
+<section class="stats py-md-5">
+		<div class="container py-4 mt-2">
+			<h3 class="tittle-w3ls text-center mb-3">速运反馈</h3>
+			<p class="tit text-center mx-auto">自2017年成立该公司以来，受到了广大师生的欢迎。</p>
+		<div class="row inner_w3l_agile_grids-1 pt-4 mt-md-4">
+			<div class="col-sm-4 w3layouts_stats_left w3_counter_grid">
+				<p class="counter">1,5460</p>
+				<h3>师生用户注册会员</h3>
+				<!--<h6></h6>-->
+			</div>
+			<div class="col-sm-4 w3layouts_stats_left w3_counter_grid1">
+			
+				<p class="counter">14,3450</p>
+				<h3>成功配送次数</h3>
+				<!--<h6></h6>-->
+			</div>
+			<div class="col-sm-4 w3layouts_stats_left w3_counter_grid2">
+			
+				<p class="counter">8630</p>
+				<h3>日均访问</h3>
+				<!--<h6>Highest level of credibility</h6>-->
+			</div>
+		</div>
+   </div>	
+</section>
+<!-- //stats -->
+<!--写死-->
+
+	<!-- footer -->
+	<!--留言-->
+	<section id="contact" >
+		<div class="lvjing" >
+			<div class="container" >
+				<div class="row">
+					<div class="col-md-6">
+						<h2>联系制作人</h2>
+						<p>如果对网站有任何问题或者建议的话</p><br>
+						<p>欢迎联系我哦</p><br>
+						<p>联系信息已经写在下面了，嘻嘻。</p><br>
+						<p>做的不好请见谅哦~</p><br>
+						<address>
+							<p><span class="glyphicon glyphicon-earphone search2"></span>电话；13676004983</p>
+							<p><span class="glyphicon glyphicon-education search2"></span>地址：吉林大学珠海学院</p>
+							<p><span class="glyphicon glyphicon-envelope search2" ></span>邮箱：474979251@qq.com</p>
+						</address>
+					</div>
+					<div class="col-md-6">
+						<form onsubmit="return false;" id="addMs">
+							<div class="col-md-12">
+								<input type="text" class="form-control" placeholder="你的名字" id="author" name="author">
+							</div>
+							<div class="col-md-12">
+								<input type="text" class="form-control" placeholder="请留下正确的联系方式，方便给予反馈！" id="phone" name="phone">
+							</div>
+							<div class="col-md-12">
+								<textarea class="form-control" placeholder="留言内容" rows="4" id="content" name="content"></textarea>
+							</div>
+							<div class="col-md-8">
+								<input type="submit" class="form-control" value="提交" onclick="addMs()">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--留言-->
+	<p class="copy-right py-3">Copyright &copy; 2018.Company name All rights reserved.</p>
+	<!-- //footer -->
+</footer>
+
+
+	<!-- js -->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- //js-->
+	<!--banner-slider-->
+	<script src="js/JiSlider.js"></script>
+	<script> 
+		$(window).load(function () {
+			$('#JiSlider').JiSlider({
+				color: '#fff',
+				start: 1,
+				reverse: false
+			}).addClass('ff')
+		})
+	</script>
+	<!-- //banner-slider -->
+	<!-- flexSlider -->
+					<script defer src="js/jquery.flexslider.js"></script>
+					<script type="text/javascript">
+					$(window).load(function(){
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						start: function(slider){
+						  $('body').removeClass('loading');
+						}
+					  });
+					});
+				  </script>
+				<!-- //flexSlider -->
+
+	<!-- start-smooth-scrolling -->
+	<script  src="js/move-top.js"></script>
+	<script  src="js/easing.js"></script>
+	<script> 
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+	<!-- stats -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.countup.js"></script>
+		<script>
+			$('.counter').countUp();
+		</script>
+<!-- //stats -->
+
+	<!-- smooth-scrolling-of-move-up -->
+	<script> 
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<script  src="js/SmoothScroll.min.js"></script>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	 <script src="js/bootstrap.js"></script>
+</body>
+
+</html>
