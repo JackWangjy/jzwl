@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zxx"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>运费时效查询</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta charset="utf-8" />
+	<meta name="keywords" content="" />
+	<script> 
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //for-mobile-apps -->
+	 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+	 <link href="css/font-awesome.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="http://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+	<script src="js/jquery.cxselect.js"></script>
+	<script src="/js/myjs.js"></script>
+
+</head>
+<script>
+	function flash() {
+        window.location.reload();
+    }
+</script>
+
+<body onload="queryFre()">
+	<!-- header -->
+	<section class="w3layouts-header py-2">
+		<div class="container">
+			  <!-- header -->
+			<header>
+				<nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+
+					<h1>
+						<a class="navbar-brand" href="/">
+							吉珠速运
+						</a>
+					</h1>
+					<button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse pull-left" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-lg-auto text-center">
+							<li class="nav-item  mr-3">
+								<a class="nav-link" href="/">主页
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item  mr-3">
+								<a class="nav-link" href="send">在线寄件</a>
+							</li>
+							<li class="nav-item active dropdown mr-3">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								   aria-expanded="false">
+									客户服务
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="search_order">订单查询</a>
+									<a class="dropdown-item" href="search_website">网点查询</a>
+									<a class="dropdown-item" href="search_freight">运费时效查询</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a href="question" class="nav-link">问题咨询</a>
+							</li>
+							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<li class="nav-item dropdown mr-3">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+								   aria-expanded="false">
+									<span th:text="${session.account?.getUsername()}"></span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+									<a class="dropdown-item" href="/myinfo">我的信息</a>
+									<a class="dropdown-item" href="tologon">退出</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+        <!-- //header -->
+
+		</div>
+	</section>
+	<!-- //header -->
+
+	<!--查询网点内容-->
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="page-header">
+					<strong class="express-title code">客户服务</strong>
+				</div>
+				<hr>
+				<div class="list-group">
+					<a href="/search_order" class="list-group-item">订单查询</a>
+					<a href="/search_website" class="list-group-item" >网点查询</a>
+					<a href="#" class="list-group-item active" >运费时效查询</a>
+				</div>
+				<!--<ul class="nav nav-pills nav-stacked">-->
+				<!--<a href="#" class="list-group-item  active">订单查询</a>-->
+				<!--<a href="/order_search" class="list-group-item" >网点查询</a>-->
+				<!--</ul>-->
+			</div>
+			<div class="col-md-6">
+				<div class="page-header">
+					<strong class="express-title code">运费时效查询</strong>
+				</div>
+				<hr>
+				<form onsubmit="return false;" id="fre">
+					<div class="modal-body">
+						<div class="form-group col-md-6">
+
+						<div id="element_id">
+							始发地：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<select class="province" id="origin" name="origin">
+								<option value="竹园" selected="">竹园</option>
+								<option value="桂园" selected="">桂园</option>
+								<option value="康园" selected="">康园</option>
+								<option value="梅园" selected="">梅园</option>
+								<option value="榕园" selected="">榕园</option>
+							</select>
+						</div>
+						<br>
+						<div id="element_id2">
+							目的地：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<select class="province" id="destination" name="destination">
+								<option value="竹园" selected="">竹园</option>
+								<option value="桂园" selected="">桂园</option>
+								<option value="康园" selected="">康园</option>
+								<option value="梅园" selected="">梅园</option>
+								<option value="榕园" selected="">榕园</option>
+							</select>
+						</div>
+						<br>
+							<div class="form-group">
+								<label class="sr-only" for="weight"></label>
+								<div class="input-group">
+									<div class="input-group-addon">重量：</div>
+									<input type="text" class="form-control" id="weight" name="weight" style="height: 25px">
+									<div class="input-group-addon">&nbsp&nbspKG</div>
+								</div>
+							</div>
+						<br>
+						<button type="submit" class="btn btn-primary" onclick="flash()">点击查询</button>
+					</div>
+					</div>
+				</form>
+
+			</div>
+
+
+			<div class="col-md-4">
+				<div class="container">
+					<br><br><br>
+					<!--<span><p>实际重量1KG</p></span>-->
+					<form id="jj">
+						<table class="table table-hover">
+							实际计费重量：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="weight1"></span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbspKG<br><br>
+							<laber>预估配送时长：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="time"></span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp天</laber><br><br>
+							预估运费：&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="money"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp元
+						</table>
+					</form>
+				</div>
+			</div>
+
+		</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-10">
+				<div class="jumbotron">
+					<h3>说明</h3>
+					<p>此报价重量是按1进位处理。
+						此报价为指导价仅供参考，详情请咨询当地营业网点 <a href="/search_website">[网点分布]</a> 。
+						注：轻抛货的计费重量按货物长×高×宽（CM）÷6000计算。
+						不规则货物，包括圆锥、圆柱状物体按长方体计算，为长、宽、高三个方向的最大尺寸相乘。计算结果仅供参考！</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--查询网点内容-->
+
+
+
+	<!-- footer -->
+	<footer>
+		<section class="footer py-md-5">
+			<div class="container py-4 mt-2">
+				<div class="row footer_inner_info_w3ls_agileits">
+					<div class="col-md-3 footer-left">
+						<h2><a href="index.html"> 版权拥有</a></h2>
+						<p class="mb-3 mt-3">吉珠速运有限公司</p>
+						<ul class="social-nav footer-social social two">
+							<li>
+								<a href="#">
+									<i class="fab fa-facebook-f" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-twitter" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-instagram" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-pinterest" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-2 sign-gd">
+						<h4>业务产品</h4>
+						<ul>
+							<li><a href="index.html">增值业务</a></li>
+							<li><a href="about.html">港台件</a></li>
+							<li><a href="services.html">国际件</a></li>
+							<li><a href="gallery.html">售后服务</a></li>
+							<li><a href="contact.html">商务合作</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4 sign-gd flickr-post">
+						<h4 style="font-family: AngsanaUPC">吉珠速运</span></h4>
+						<ul>
+							<li><a href="#"><img src="images/g1.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g2.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g3.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g4.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g5.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g6.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g7.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g8.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g9.jpg" alt=" " class="img-fluid" /></a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 sign-gd-two">
+						<h4>联系方式</h4>
+						<div class="address">
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Phone Number</h6>
+									<p>+020 43962800</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Email Address</h6>
+									<p>Email :<a href="mailto:example@email.com"> 2454817543@qq.com</a></p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Location</h6>
+									<p>吉林大学珠海学院.
+
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<p class="copy-right py-3">Copyright &copy; 2018.Company name All rights reserved.</p>
+	</footer>
+	<!-- footer -->
+
+	<!-- js -->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- //js-->
+	<!-- start-smooth-scrolling -->
+	<script  src="js/move-top.js"></script>
+	<script  src="js/easing.js"></script>
+	<script> 
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+	<!-- smooth-scrolling-of-move-up -->
+	<script> 
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<script  src="js/SmoothScroll.min.js"></script>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	 <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

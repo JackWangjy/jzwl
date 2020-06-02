@@ -3,6 +3,7 @@ package com.it.service.impl;
 import com.it.domian.*;
 import com.it.mapper.*;
 import com.it.service.JluzhService;
+import org.apache.shiro.authc.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -22,9 +23,7 @@ public class JluzhServiceImpl implements JluzhService {
      * 自动注入mapper类
      */
     @Autowired
-    private UserMapper userMapper;
-    @Autowired
-    private MessageMapper messageMapper;
+    private VipInfoMapper infoMapper;
     @Autowired
     private AccountMapper accountMapper;
     @Autowired
@@ -33,76 +32,38 @@ public class JluzhServiceImpl implements JluzhService {
     private WebsiteMapper websiteMapper;
     @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    private AddressBookMapper addressBookMapper;
+    @Autowired
+    private FreightMapper freightMapper;
+
 
     @Override
-    public List<User> getAllShenfen(String shenfen) {
-        List<User> users = userMapper.getAllShenfen(shenfen);
-        return users;
+    public void addUser(VipInfo info) {
+        Date d = new Date();//获取当时间对象
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH：mm：ss");//获取时间格式
+//        String time = sdf.format(d);//将当前时间临时存储time上
+        info.setCreatetime(d);
+        infoMapper.addUser(info);
     }
 
-    @Override
-    public void deleteById(Integer id) {
-        userMapper.deleteById(id);
-    }
+
 
     @Override
-    public void addUser(User user) {
-        userMapper.addUser(user);
-    }
-
-    @Override
-    public List<User> getAllUser() {
-        List<User> users = userMapper.getAllUser();
-        return users;
-    }
-
-    @Override
-    public void addMessage(Message message) {
-        messageMapper.addMessage(message);
-    }
-
-    @Override
-    public Account login(String username, String password) {
-        Account ac = accountMapper.login(username,password);
+    public VipAccount login(String username) {
+        VipAccount ac = accountMapper.login(username);
         return ac;
     }
 
+
     @Override
-    public List<Message> getMessage() {
-        List<Message> messages = messageMapper.getMessage();
-        return messages;
+    public void addAccount(VipAccount vipAccount) {
+        accountMapper.addAccount(vipAccount);
     }
 
     @Override
-    public List<Account> getAllAccount() {
-        List<Account> accounts = accountMapper.getAllAccount();
-        return accounts;
-    }
-
-    @Override
-    public void deleteMessageById(Integer id) {
-        messageMapper.deleteMessageById(id);
-    }
-
-    @Override
-    public void addAccount(Account account) {
-        accountMapper.addAccount(account);
-    }
-
-    @Override
-    public void deleteAccountById(Integer id) {
-        accountMapper.deleteAccountById(id);
-    }
-
-    @Override
-    public void updateAccount(Account account) {
-        accountMapper.updateAccount(account);
-    }
-
-    @Override
-    public List<Content> getAllContent() {
-        List<Content> contents = contentMapper.getAllContent();
-        return contents;
+    public void updateAccount(VipAccount vipAccount) {
+        accountMapper.updateAccount(vipAccount);
     }
 
     @Override
@@ -115,97 +76,96 @@ public class JluzhServiceImpl implements JluzhService {
     }
 
     @Override
-    public void updateUser(User user) {
-        userMapper.updateUser(user);
+    public void updateUser(VipInfo info) {
+        infoMapper.updateUser(info);
     }
 
     @Override
-    public void deleteByAccountId(Integer id) {
-        userMapper.deleteByAccountId(id);
+    public VipInfo getUserById(Integer id) {
+        VipInfo info = infoMapper.getUserById(id);
+        return info;
     }
 
-    @Override
-    public User getUserById(Integer id) {
-        User user = userMapper.getUserById(id);
-        return user;
-    }
-
-//    @Override
-//    public void deleteContentById(Integer id) {
-//        contentMapper.deleteContentById(id);
-//    }
-//
-//    @Override
-//    public void updateContent(Content content) {
-//        contentMapper.updateContent(content);
-//    }
 
     @Override
-    public List<Website> getAllWebsite() {
-        List<Website> list = websiteMapper.getAllWebsite();
-        return list;
-    }
-
-    @Override
-    public void deleteWebsite(Integer id) {
-        websiteMapper.deleteWebsite(id);
-    }
-
-    @Override
-    public void addWebsite(Website website) {
-        websiteMapper.addWebsite(website);
-    }
-
-    @Override
-    public void updateWebsite(Website website) {
-        websiteMapper.updateWebsite(website);
-    }
-
-    @Override
-    public List<Order> getAllOrder() {
-        List<Order> list = orderMapper.getAllOrder();
-        return list;
-    }
-
-    @Override
-    public Order getOrderByOrderId(Integer orderid) {
+    public Order getOrderByOrderId(String orderid) {
         Order order = orderMapper.getOrderByOrderId(orderid);
         return order;
     }
 
+
+//    @Override
+//    public void insertOrder(Order order) {
+//        String base = "0123456789";
+//        Random random = new Random();
+//        StringBuffer sb = new StringBuffer();
+//        for (int i = 0; i < 10; i++) {
+//            int number = random.nextInt(base.length());
+//            sb.append(base.charAt(number));
+//        }
+//        String str = sb.toString();
+////        Integer orderid = Integer.parseInt(str);
+//        order.setOrderid(str);
+//        orderMapper.insertOrder(order);
+//    }
+
     @Override
-    public void updateOrder(Order order) {
-        orderMapper.updateOrder(order);
+    public List<Website> queryWebsite(String province,String school,String yuanqu) {
+        return websiteMapper.queryWebsite(province,school,yuanqu);
     }
 
     @Override
-    public void deleteByOrderid(Integer orderid) {
-        orderMapper.deleteByOrderid(orderid);
+    public void placeOrder(Order order) {
+        orderMapper.placeOrder(order);
     }
 
     @Override
-    public List<Order> findOrder(Integer orderid,String sendername,String recipientname) {
-        List<Order> list = orderMapper.findOrder(orderid,sendername,recipientname);
-        return list;
+    public int countName(String username) {
+        return accountMapper.countName(username);
     }
 
     @Override
-    public void insertOrder(Order order) {
-        String base = "0123456789";
-        Random random = new Random();
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < 10; i++) {
-            int number = random.nextInt(base.length());
-            sb.append(base.charAt(number));
-        }
-        String str = sb.toString();
-        Integer orderid = Integer.parseInt(str);
-        order.setOrderid(orderid);
-        orderMapper.insertOrder(order);
+    public VipInfo getInfo(Integer id) {
+        return infoMapper.getInfo(id);
     }
 
     @Override
-    public List<Website> queryWebsite(String address) {
-        return websiteMapper.queryWebsite(address);
+    public List<AddressBook> getMyAddressBook(Integer account_id) {
+        return addressBookMapper.getMyAddressBook(account_id);
+    }
+
+    @Override
+    public void insertAddressBook(AddressBook addressBook) {
+        addressBookMapper.insertAddressBook(addressBook);
+    }
+
+    @Override
+    public void deleteaddress(Integer id) {
+        addressBookMapper.deleteaddress(id);
+    }
+
+    @Override
+    public void updateAddress(AddressBook addressBook) {
+        addressBookMapper.updateAddress(addressBook);
+    }
+
+    @Override
+    public int totalAddress(Integer account_id) {
+        return addressBookMapper.totalAddress(account_id);
+    }
+
+    @Override
+    public List<Order> findOrderByAccountId(Integer id) {
+        return orderMapper.findOrderByAccountId(id);
+    }
+
+    @Override
+    public Freight getFre(String start, String end) {
+        return freightMapper.getFre(start,end);
+    }
+
+    @Override
+    public List<Order> findOrderByRecipientPhone(String recipientphone) {
+        return orderMapper.findOrderByRecipientPhone(recipientphone);
     }
 }

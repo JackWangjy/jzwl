@@ -10,117 +10,81 @@ public interface JluzhService {
      * 登录操作
      *
      * @param username
-     * @param password
      * @return
      */
-    Account login(String username, String password);
-
-    /**
-     * 查询所有账号信息
-     *
-     * @return
-     */
-    List<Account> getAllAccount();
+    VipAccount login(String username);
 
     /**
      * 增加账号
      *
-     * @param account
+     * @param vipAccount
      */
-    void addAccount(Account account);
+    void addAccount(VipAccount vipAccount);
 
-    /**
-     * 根据id删除账号
-     *
-     * @param id
-     */
-    void deleteAccountById(Integer id);
+//    /**
+//     * 根据id删除账号
+//     *
+//     * @param id
+//     */
+//    void deleteAccountById(Integer id);
 
     /**
      * 修改账号信息
      *
-     * @param account
+     * @param vipAccount
      */
-    void updateAccount(Account account);
+    void updateAccount(VipAccount vipAccount);
 
-    /**
-     * 查询所有用户信息
-     *
-     * @return
-     */
-    List<User> getAllUser();
+//    /**
+//     * 查询所有用户信息
+//     *
+//     * @return
+//     */
+//    List<VipInfo> getAllUser();
 
     /**
      * 添加用户信息
      *
-     * @param user
+     * @param info
      */
-    void addUser(User user);
+    void addUser(VipInfo info);
 
-    /**
-     * 查询同一身份的所有人
-     *
-     * @param shenfen
-     * @return
-     */
-    List<User> getAllShenfen(String shenfen);
 
-    /**
-     * 根据id删除用户
-     *
-     * @param id
-     */
-    void deleteById(Integer id);
+//    /**
+//     * 根据id删除用户
+//     *
+//     * @param id
+//     */
+//    void deleteById(Integer id);
 
     /**
      * 修改用户信息
      * @param user
      */
-    void updateUser(User user);
-
-    /**
-     * 添加留言信息
-     *
-     * @param message
-     */
-    void addMessage(Message message);
-
-    /**
-     * 查询所有留言信息
-     *
-     * @return
-     */
-    List<Message> getMessage();
-
-    /**
-     * 查询所有文章
-     *
-     * @return
-     */
-    List<Content> getAllContent();
+    void updateUser(VipInfo user);
 
     /**
      * @param content
      */
     void addContent(Content content);
 
-    /**
-     * 管理员删除内部留言
-     * @param id
-     */
-    void deleteMessageById(Integer id);
-
-    /**
-     * 根据账号id删除用户
-     * @param id
-     */
-    void deleteByAccountId(Integer id);
+//    /**
+//     * 管理员删除内部留言
+//     * @param id
+//     */
+//    void deleteMessageById(Integer id);
+//
+//    /**
+//     * 根据账号id删除用户
+//     * @param id
+//     */
+//    void deleteByAccountId(Integer id);
 
     /**
      * 根据id查询用户信息
      * @return
      */
-    User getUserById(Integer id);
+    VipInfo getUserById(Integer id);
 
 //    /**
 //     * 删除留言内容
@@ -134,71 +98,117 @@ public interface JluzhService {
 //     */
 //    void updateContent(Content content);
 
-    /**
-     * 查询所有网点信息
-     * @return
-     */
-    List<Website> getAllWebsite();
+//    /**
+//     * 查询所有网点信息
+//     * @return
+//     */
+//    List<Website> getAllWebsite();
 
-    /**
-     * 根据id删除网点信息
-     * @param id
-     */
-    void deleteWebsite(Integer id);
+//    /**
+//     * 根据id删除网点信息
+//     * @param id
+//     */
+//    void deleteWebsite(Integer id);
+//
+//    /**
+//     * 添加网点
+//     * @param website
+//     */
+//    void addWebsite(Website website);
 
-    /**
-     * 添加网点
-     * @param website
-     */
-    void addWebsite(Website website);
+//    /**
+//     * 修改网点
+//     * @param website
+//     */
+//    void updateWebsite(Website website);
 
-    /**
-     * 修改网点
-     * @param website
-     */
-    void updateWebsite(Website website);
-
-    /**
-     * 查询所有订单
-     * @return
-     */
-    List<Order> getAllOrder();
 
     /**
      * 根据订单号查询订单信息
      * @param orderid
      * @return
      */
-    Order getOrderByOrderId(Integer orderid);
+    Order getOrderByOrderId(String orderid);
 
-    /**
-     * 修改订单信息
-     * @param order
-     */
-    void updateOrder(Order order);
-
-    /**
-     * 根据订单号删除订单
-     * @param orderid
-     */
-    void deleteByOrderid(Integer orderid);
-
-    /**
-     * 搜索订单
-     * @return
-     */
-    List<Order> findOrder(Integer orderid, String sendername, String recipientname);
-
-    /**
-     * 添加订单
-     * @param order
-     */
-    void insertOrder(Order order);
 
     /**
      * 用户查询网点
-     * @param address
+     * @param
      * @return
      */
-    List<Website> queryWebsite(String address);
+    List<Website> queryWebsite(String province,String school,String yuanqu);
+
+    /**
+     * 用户下单
+     * @param order
+     */
+    void placeOrder(Order order);
+
+    /**
+     * 查询用户名是否重复
+     * @param username
+     * @return
+     */
+    int countName(String username);
+
+    /**
+     * 获取信息
+     * @param id
+     * @return
+     */
+    VipInfo getInfo(Integer id);
+
+    /**
+     * 查询地址簿
+     * @param account_id
+     * @return
+     */
+    List<AddressBook> getMyAddressBook(Integer account_id);
+
+    /**
+     * 新增地址
+     * @param addressBook
+     */
+    void insertAddressBook(AddressBook addressBook);
+
+    /**
+     * 删除地址
+     * @param id
+     */
+    void deleteaddress(Integer id);
+
+    /**
+     * 更新地址
+     * @param addressBook
+     */
+    void updateAddress(AddressBook addressBook);
+
+    /**
+     * 计算地址簿数量
+     * @param account_id
+     * @return
+     */
+    int totalAddress(Integer account_id);
+
+    /**
+     * 查询我的快递
+     * @param id
+     * @return
+     */
+    List<Order> findOrderByAccountId(Integer id);
+
+    /**
+     * 运费查询
+     * @param start
+     * @param end
+     * @return
+     */
+    Freight getFre(String start, String end);
+
+    /**
+     * 根据电话查询待收取的包裹
+     * @param  phone
+     * @return
+     */
+    List<Order> findOrderByRecipientPhone(String recipientphone);
 }

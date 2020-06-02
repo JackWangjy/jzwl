@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx"  xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Home</title>
+	<title>吉珠速运</title>
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	  <meta charset="utf-8" />
@@ -17,11 +17,8 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<!-- //for-mobile-apps -->
 	 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-	<!--banner slider  -->
 	<link href="css/JiSlider.css" rel="stylesheet">
-	<!-- //banner-slider -->
 	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
 	 <link href="css/font-awesome.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -29,8 +26,10 @@
 	<link href="http://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
 
+
+
 </head>
-<script>
+<script type="text/javascript">
     function addMs()  {
         $.ajax({
             url:"/addMs",
@@ -43,9 +42,22 @@
                 else{alert("提交失败")}
             }
         })
-    }
+    };
+
+    function check() {
+        var acid = document.getElementById("acid").value;
+        if(acid!=""){
+            var l = document.getElementById("log");
+            l.style.display="none";
+        }
+        else{
+            return;
+        }
+
+    };
+
 </script>
-<body>
+<body onload="check()">
 	<!-- header -->
 	<section class="w3layouts-header py-2">
 		<div class="container">
@@ -71,19 +83,8 @@
                                 </a>
                             </li>
                             <li class="nav-item  mr-3">
-                                <a class="nav-link" href="about.html">我要寄件</a>
+                                <a class="nav-link" href="send">在线寄件</a>
                             </li>
-							<li class="nav-item dropdown mr-3">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
-								   aria-expanded="false">
-									我的信息
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-									<a class="dropdown-item" href="gallery.html">我的信息</a>
-									<a class="dropdown-item" href="typo.html">修改密码</a>
-									<a class="dropdown-item" href="typo.html">退出</a>
-								</div>
-							</li>
                             <li class="nav-item dropdown mr-3">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
@@ -92,14 +93,27 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="search_order">订单查询</a>
 									 <a class="dropdown-item" href="search_website">网点查询</a>
+									<a class="dropdown-item" href="search_freight">运费时效查询</a>
                                 </div>
                             </li>
-                            <li class="nav-item mr-3">
-                                <a class="nav-link" href="contact.html">登录</a>
+                            <li class="nav-item mr-3" id="log" >
+                                <a  class="nav-link" href="login">登录</a>
+								<input type="text" id="acid" th:value="${session?.account?.getId()}" style="display: none">
                             </li>
                             <li class="nav-item">
-                               	<a href="" class="fas fa-phone pr-2">联系客服</a>
+                               	<a href="question" class="nav-link">问题咨询</a>
                             </li>
+							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<li class="nav-item dropdown mr-3">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+								   aria-expanded="false">
+									<span th:text="${session.account?.getUsername()}"></span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+									<a class="dropdown-item" href="/myinfo">我的信息</a>
+									<a class="dropdown-item" href="tologon">退出</a>
+								</div>
+							</li>
                         </ul>
                     </div>
                 </nav>
@@ -161,7 +175,7 @@
 								<p class="mt-3 mb-3">给寄件多一份方便，给寄件多一份欢乐</p>
 								
 								<div class="read-btn">
-									<a href="about.html">马上寄件</a>
+									<a href="send">马上寄件</a>
 								</div>
 							</div>
 						</div>
@@ -172,7 +186,7 @@
 								<p class="mt-3 mb-3">查看个人信息</p>
 								
 								<div class="read-btn">
-									<a href="about.html">点击查看</a>
+									<a href="/myinfo">点击查看</a>
 								</div>
 							</div>
 						</div>
@@ -182,7 +196,7 @@
 									<h3 class="text-center">快件追踪</h3>
 									<!--<p class="text-center">Or call one of our customer service</p>-->
 								</div>
-								<form action="get" method="get" class="banner_form">
+								<form action="../getOr" method="post" class="banner_form">
 									<div class="sec-left">
 										<label class="contact-form-text">输入订单号:</label>
 										<input  name="orderid" id="orderid" type="text">
@@ -404,7 +418,103 @@
 		</div>
 	</section>
 	<!--留言-->
-	<p class="copy-right py-3">Copyright &copy; 2018.Company name All rights reserved.</p>
+	<footer>
+		<section class="footer py-md-5">
+			<div class="container py-4 mt-2">
+				<div class="row footer_inner_info_w3ls_agileits">
+					<div class="col-md-3 footer-left">
+						<h2><a href="index.html"> 版权拥有</a></h2>
+						<p class="mb-3 mt-3">吉珠速运有限公司</p>
+						<ul class="social-nav footer-social social two">
+							<li>
+								<a href="#">
+									<i class="fab fa-facebook-f" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-twitter" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-instagram" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-pinterest" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-2 sign-gd">
+						<h4>业务产品</h4>
+						<ul>
+							<li><a href="index.html">增值业务</a></li>
+							<li><a href="about.html">港台件</a></li>
+							<li><a href="services.html">国际件</a></li>
+							<li><a href="gallery.html">售后服务</a></li>
+							<li><a href="contact.html">商务合作</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4 sign-gd flickr-post">
+						<h4 style="font-family: AngsanaUPC">吉珠速运</span></h4>
+						<ul>
+							<li><a href="#"><img src="images/g1.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g2.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g3.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g4.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g5.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g6.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g7.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g8.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g9.jpg" alt=" " class="img-fluid" /></a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 sign-gd-two">
+						<h4>联系方式</h4>
+						<div class="address">
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Phone Number</h6>
+									<p>+020 43962800</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Email Address</h6>
+									<p>Email :<a href="mailto:example@email.com"> 2454817543@qq.com</a></p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Location</h6>
+									<p>吉林大学珠海学院.
+
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<p class="copy-right py-3">Copyright &copy; 2018.Company name All rights reserved.</p>
+	</footer>
 	<!-- //footer -->
 </footer>
 

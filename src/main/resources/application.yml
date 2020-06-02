@@ -13,8 +13,9 @@ pagehelper:
   #  schema:
 #       - classpath:sql/department.sql
 mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 #       - classpath:sql/employee.sql
 
 

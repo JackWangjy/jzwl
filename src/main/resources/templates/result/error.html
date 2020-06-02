@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zxx"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>About</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta charset="utf-8" />
+	<meta name="keywords" content="" />
+	<script> 
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //for-mobile-apps -->
+	 <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+	 <link href="css/font-awesome.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="http://fonts.googleapis.com/css?family=Rubik:400,500,700,900" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- header -->
+	<section class="w3layouts-header py-2">
+		<div class="container">
+			<!-- header -->
+			<header>
+				<nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+
+					<h1>
+						<a class="navbar-brand" href="/">
+							吉珠速运
+						</a>
+					</h1>
+					<button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+							aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse pull-left" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-lg-auto text-center">
+							<li class="nav-item  mr-3">
+								<a class="nav-link" href="/">主页
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item mr-3">
+								<a class="nav-link" href="send">在线寄件</a>
+							</li>
+							<li class="nav-item dropdown mr-3">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+								   aria-expanded="false">
+									客户服务
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="search_order">订单查询</a>
+									<a class="dropdown-item" href="search_website">网点查询</a>
+									<a class="dropdown-item" href="search_freight">运费时效查询</a>
+								</div>
+							</li>
+							<li class="nav-item">
+								<a href="question" class="nav-link">问题咨询</a>
+							</li>
+							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<li class="nav-item dropdown mr-3">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+								   aria-expanded="false">
+									<span th:text="${session.account?.getUsername()}"></span>
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+									<a class="dropdown-item" href="/myinfo">我的信息</a>
+									<a class="dropdown-item" href="tologon">退出</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+			<!-- //header -->
+
+		</div>
+	</section>
+	<!-- //header -->
+	<br>
+	<div class="main-panel">
+		<div class="content">
+			<div class="container-fluid">
+				<div class="jumbotron">
+					<h1>寄件失败!</h1>
+					<p>请重试或者联系客服或者去附近网点进行寄件！</p>
+					<p><a class="btn btn-primary btn-lg" href="../send" role="button">返回寄件</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<section class="footer py-md-5">
+			<div class="container py-4 mt-2">
+				<div class="row footer_inner_info_w3ls_agileits">
+					<div class="col-md-3 footer-left">
+						<h2><a href="../index.html"> 版权拥有</a></h2>
+						<p class="mb-3 mt-3">吉珠速运有限公司</p>
+						<ul class="social-nav footer-social social two">
+							<li>
+								<a href="#">
+									<i class="fab fa-facebook-f" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-twitter" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-instagram" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fab fa-pinterest" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-2 sign-gd">
+						<h4>业务产品</h4>
+						<ul>
+							<li><a href="../index.html">增值业务</a></li>
+							<li><a href="about.html">港台件</a></li>
+							<li><a href="services.html">国际件</a></li>
+							<li><a href="gallery.html">售后服务</a></li>
+							<li><a href="contact.html">商务合作</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4 sign-gd flickr-post">
+						<h4 style="font-family: AngsanaUPC">吉珠速运</span></h4>
+						<ul>
+							<li><a href="#"><img src="images/g1.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g2.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g3.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g4.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g5.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g6.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g7.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g8.jpg" alt=" " class="img-fluid" /></a></li>
+							<li><a href="#"><img src="images/g9.jpg" alt=" " class="img-fluid" /></a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 sign-gd-two">
+						<h4>联系方式</h4>
+						<div class="address">
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Phone Number</h6>
+									<p>+020 43962800</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Email Address</h6>
+									<p>Email :<a href="mailto:example@email.com"> 2454817543@qq.com</a></p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="address-grid">
+								<div class="address-left">
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+								</div>
+								<div class="address-right">
+									<h6>Location</h6>
+									<p>吉林大学珠海学院.
+
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<p class="copy-right py-3">Copyright &copy; 2018.Company name All rights reserved.</p>
+	</footer>
+
+	<!--modal-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4>快递服务协议</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+						</div>
+						<div class="modal-body" style="height:500px;overflow:scroll">
+							<p>特别提示：
+
+								禁寄物品：寄件人不得交寄各类具有爆炸性、易燃性、腐蚀性、毒害性、感染性、放射性的可能危害寄递安全的物品、违法违规物品以及其他不予收寄物品。
+
+								信息收集与保护：寄递过程中产生的信息，包括但不限于寄件人及收件人的姓名/名称、地址、电话，会被收集储存，并会被用于服务的改善或推广。
+
+								赔偿标准：单票快件价值超过人民币500元的，寄件人应当保价。保价快件，赔偿上限为保价金额；未保价快件，赔偿上限为人民币500元。但无论如何赔偿范围不包括商业机会、预期收益等间接损失。
+
+								（上述内容详见协议相应条款）
+
+								1.定义、生效及适用范围
+
+								1.1定义
+
+								（1）寄件人系指委托寄送快件的一方。
+
+								（2）收件人系指由寄件人指定收取快件的一方。
+
+								（3）中通快递股份有限公司系依法设立、取得快递业务经营许可证，拥有“中通”、“zto”注册商标，从事快递业务的股份有限公司。
+
+								（4） 快递服务组织系依法设立，经中通快递股份有限公司授权使用“中通”、“zto”注册商标，从事快递业务，自主承担快递服务法律责任的企业法人，是本协议项下实际提供快件揽收和派送服务的快递营业机构。
+
+								1.2生效
+
+								寄件人通过填写快递面单（包括电子面单或纸质面单）提交订单并向快递服务组织交付需寄递的快件后，视为寄件人与快递服务组织签署本协议并即时生效。快递面单是本协议的组成部分。
+
+								1.3适用范围
+
+								本协议适用于快递服务组织揽收的寄件地址及收件地址均位于中华人民共和国境内（为本协议之目的，不包括香港、澳门及中国台湾地区）的快递业务。
+
+								2.双方的权利与义务
+
+								2.1禁寄物品
+
+								寄件人不得交寄法律法规或相关政府主管部门规定禁止和限制寄递的物品以及本公司不予收寄或限制收寄的物品。快递服务组织在寄递过程中发现前述物品的，有权根据实际情况，采取包括但不限于退件、扣押、转交相关主管部门等措施。因寄递禁寄物品造成快递服务组织或第三人人身财产损害及其他损失的，寄件人应当予以赔偿。
+
+								2.2实名验证
+
+								寄件人应准确、完整、如实地填写快递面单并提供有效身份证件进行实名验证；寄件人为法人的，应提供法人证照及法定代表人或相关负责人的身份证件进行实名验证。寄件人同意快递服务组织记录、留存相关证件信息。
+
+								2.3验视
+
+								快递服务组织有权对寄件人交寄物品进行开箱验视；对于无法判定内件属性的交寄物品，有权要求寄件人出具有效证明。寄件人不配合验视的，快递服务组织有权不予揽收或退回已揽收快件。
+
+								2.4包装
+
+								寄件人应妥善包装交寄物品，确保符合寄递要求（包装要求），因快件包装不善造成快件损毁、遗失的，快递服务组织不予赔偿；因此造成快递服务组织或第三方人身财产损害的，寄件人应当予以赔偿。寄件人委托快递服务组织进行包装的，快递服务组织有权收取相应的包装费用。
+
+								2.5服务费
+
+								寄件人应按快递服务组织公示的或双方约定的计费方式及费率及时支付相应的快递服务费用及相关费用。逾期支付的，每逾期一日，应按逾期金额千分之一支付违约金，但双方另有约定除外。同时，寄件人拖欠服务费及相关费用的，快递服务组织还有权留置交寄物品（不能留置的物品除外）；留置期超过70天寄件人仍未付清拖欠款项的，快递服务组织有权通过变卖、拍卖等合理方式处置留置物品，所获收益扣除处置费用、拖欠服务费用后仍有剩余的，返还寄件人。
+
+								寄件人选择到付服务但收件人拒绝支付费用的，则费用应由寄件人承担；如涉及退件的，相应费用亦由寄件人承担。
+
+								2.6价值申报和保价
+
+								单票快件价值超过人民币500元的，寄件人应于交寄时向快递服务组织书面申报并办理保价，支付保价费用。保价费率为申报价值的3%。未支付保价费的视为未保价。
+
+								2.7查询
+
+								中通快递官方网站、中通快递APP、微信公众号及查询热线提供自交寄之日起一年内的快件查询服务。
+
+								2.8送达时限
+
+								快件递送时限以中通快递官方网站等渠道公示的信息为准。
+
+								2.9签收
+
+								寄件人同意并促使收件人同意快递服务组织可以根据实际情况的便利，按如下方式之一，安全、合理地投递快件：
+
+								（1）交由收件人本人签收；
+
+								（2）交由收件人的同住人或指定的代收人签收；
+
+								（3）投递至收件地址范围内的代收点或自提柜；
+
+								（4）按收件人或寄件人指定的其他方式投递。
+
+								快递服务组织按以上方式之一投递快件且快件外包装完好的，视为该次快递服务履行完毕。
+
+								2.10退件
+
+								收件地址不详无法送达的、收件人拒收的或非因快递服务组织原因两次派送未成功的，快递服务组织有权退回快件或按寄件人明示的合理要求处理，相应费用由寄件人承担。寄件人未明示快件处置要求且拒绝退件、不支付退件或处置费用或快件无法投递且无法退回的，快递服务组织有权按相关规定处置快件，处置后所得收益扣除服务费与处置费后，剩余部分返还寄件人。
+
+								3.赔偿标准
+
+								因快递服务组织原因导致快件延误、损毁、遗失的，快递服务组织按以下标准赔偿：
+
+								（1）延误：快件未按约定或承诺的时效送达的，免除相应的快递服务费用；
+
+								（2）损毁或遗失：
+
+								物品价值在500元（含）以内的，按照实际损失赔偿；
+
+								物品价值高于500元的，保价快件按照实际损失赔偿，但最高不超过保价金额；未保价快件,按实际损失赔偿，但最高不超过500元/票；
+
+								（3）除本协议另有约定外，未保价且无法提供有效价值证明的，按照100元/票赔偿。
+
+								上述赔偿范围不包括预期收益、利润、商业机会等任何间接损失。
+
+								4.信息收集及使用
+
+								寄件人同意并遵守中通快递官网（www.zto.com）所公示的信息保护和隐私政策及其不定期修订的内容，确保其向快递服务组织提供的收件人姓名/名称、地址、电话、证件等信息为合法获取并经有效授权使用。中通快递股份有限公司及其关联公司、快递服务组织有权收集、存储、编辑、传输寄件人和收件人提供的或在相关服务中形成的各项信息，并为提供、改善、推广快递服务及衍生产品和服务而使用或授权他人使用该等信息。
+
+								5.争议解决
+
+								本协议履行过程中如发生争议，应友好协商解决；协商不成的，应向快件寄出地有管辖权的人民法院提起诉讼。
+
+								包装要求：
+
+								1.包装基本常识
+
+								包装是否符合要求，对保证快件安全、准确、迅速的传递，起着极为重要的作用。尤其是流质和易碎物品，如果包装不妥，不但快件自身容易遭受损坏，而且还会污损其他快件，危及工作人员的安全。判断包装是否牢固，主要要看经过包装后的快件是否能够经受长途运输和正常碰撞、摩擦、震荡、压力以及气候变化，而不致损坏。因此一定要按照物品性质、大小、轻重、寄递路程以及运输情况等，选用适当的包装材料对快件进行妥善包装。
+
+								2.包装原则
+
+								2.1适合运输原则快件包装应坚固、完好，能够防止在运输过程中发生包装破裂、内物漏出、散失；能够防止因摆放、摩擦、震荡或因气压、气温变化而引起快件损坏或者变质；能够防止伤害操作人员或污染运输设备、地面设备及其他物品。
+
+								2.2便于装卸原包装材料除应适合快件的性质、状态和重量外，还要整洁、干燥、没有异味和油渍；包装外表面不能有凸出的钉、钩、刺等，要便于搬运、装卸和摆放。
+
+								2.3适度包装原则根据快件尺寸、重量和运输特性选择合适大小的外包装及填充物，不足包装和过度包装都不可取。不足包装容易造成快件损坏，过度包装造成包装材料浪费。
+
+								3.包装材料的选择
+
+								3.1纸质类的寄递物品,厚度不超过1cm的纸质物品，使用文件封进行包装；厚度超过1cm且不易破碎、抗压类的书刊、样品等寄递物品，可选择包装袋包装。
+
+								3.2质脆易碎物品,如玻璃、光碟、灯饰、陶瓷等,此类快件必须在包装内部的六个面加垫防震材料，且每一件物品单独使用泡沫或其他缓冲材料进行包装。采取多层次包装方法，即快件—衬垫材料—内包装—缓冲材料—运输包装（外包装）。
+
+								3.3体积微小的五金配件、纽扣及其他易散落、易丢失的物品，此类快件用塑料袋作为内包装将寄递物品聚集，并严密封口，注意内包装留有适当的空隙。数量较少可使用包装袋作为外包装；数量较大可使用质地坚固、大小适中的纸箱作为外包装，并用填充材料填充箱内的空隙，使得快件在箱内相对固定，避免填充过满而导致内包装破裂引起快件散落丢失。
+
+								3.4重量较大的物品，如机器零件、模具、钢（铁）块等，此类快件先使用材质较软的包装材料（如气泡垫等）包裹，然后采用材质较好、耐磨性能好的塑料袋包装，或以材质较好的纸箱包装后并用打包带加固，还可使用木箱进行包装。若快件属易碎品，还须在外包装上加贴易碎标识以作警示。
+
+								3.5不规则（异形）、超大、超长的物品此类快件以气泡垫等材质较软的材料进行全部或局部（如两端等易损部位）包装。细长快件还应尽可能捆绑加固，减少中转或运输过程中折损的可能性。但若单件重量已达5kg，则无须将多件捆绑，以利于中转及搬运。若快件为易折损品，应在快件指定位置粘贴易碎标识。
+
+								3.6较大的圆柱形或原材料物品（如布匹、皮料、鞋材、泡沫等），此类快件可以先使用透明的塑料薄膜进行包裹，然后再使用胶纸对其进行缠绕包装；严禁使用各种有色的垃圾袋进行包装。
+
+								3.7特产类物品，如水果、月饼等，此类快件必须进行保护性包装，具体包装方法可因物而异，以既能防止破损变质，又不污染其他快件为原则，如水果采用条筐、竹笼或者竹篓包装。
+
+								3.8液态物品的包装（仅限全程陆路运输的非危险性物品，容器内部必须留有5%-10%的空隙，封盖必须严密，不得溢漏。若是用玻璃容器盛装的液体，则每一容器的容量不宜超过500ml。若容器本身的强度较小，则必须采用纸箱或木箱对快件进行加固包装，且箱内应使用缓冲材料填实，防止晃动或倒置搬运液体渗出污染其他快件，并在外包装上粘贴易碎标识。
+
+								3.9轴承内钢珠等会渗油的固体物品，此类快件必须满足液体类物品的包装要求，应使用衬垫和吸附材料填实，防止在运输过程因渗漏而污染本身运单及其他快件。 粉状物品（难以辨认成分的白色粉状物品及进出口件除外，若快件的原包装是塑料袋包装的，还应使用塑料涂膜编织袋作外包装，保证粉末不致漏出。单件快件毛重不宜超过50kg.若快件的原包装是用硬纸桶、木桶、胶合板桶盛装的，要求桶身不破、接缝严密、桶盖密封、桶箍坚固结实，桶身两端应有钢带打包带。若快件的原包装是用玻璃器皿包装的，每瓶内装物的重量不宜超过1kg。如容器本身的强度不够，则须用铁制或木制材料作外包装，且箱内应用缓冲材料填实。单件快件毛重以不超过25kg为宜。
+
+								3.10纺织类物品，此类快件可采用布袋、麻袋、纸箱包装。布袋的材料应选用坚固结实的棉布；麻袋的坯布应无破洞，具有一定强度，封口处应用封口机一次性封口。 若使用纸箱包装，必须对箱角及边缘用胶纸加固，确保其不会在运输过程中破裂。凡纸箱任何一边超过60cm，还需用打包带加固。若纸箱质量较差，还可在其外面套编织袋，以防止在搬运、装卸过程中造成部分遗失或损坏。
+
+								3.11精密仪器及电子产品类物品，此类快件应采用纸箱或全木箱包装，快件与箱壁应预留2cm的空隙，用缓冲材料填充。若使用纸箱包装，在检查完寄递物品后，如外包装有旧的快递运输或包装标识，须将其清除；如无法清除干净的，在体积允许的情况下，应将纸箱装入包装袋，或用包装箱重新进行包装，以避免旧的快件标识造成操作失误。 对于可以收寄的自身带电的电子类寄递物品，必须在征得客户同意的情况下将寄递物品自带的电池拆卸并与主体分离后方可收取；对于无法拆卸分离的快件不予收取，并向客户做好解释工作。
+
+								3.12胶纸中使用最多的是透明胶纸，用于对所收客户的寄递物品进行封固包装。除文件封和各款包装袋以外，其他类型包装的快件一般都需要用胶纸进行封固包装。对于外形规则类纸箱包装的快件，要求使用胶纸对纸箱上下表面进行“├┤”字形包装操作。
+
+								3.13胶纸封箱操作方法  使用透明胶纸沿着纸箱的中缝部位进行封粘，同时胶纸两端应延纸箱两侧面放宽5-10cm，以便将纸箱的中缝两端开口处覆盖，同时做到压紧胶纸两端，使得胶纸和箱体充分粘合。 使用透明胶纸分别对纸箱的两侧缝口进行封粘。封粘要求先对纸箱一侧的侧缝开口进行封粘，同样胶纸应延长放宽5-10cm，同时做到压紧胶纸两端和胶纸中间部位，使用胶纸和箱体充分粘合。 在完成纸箱一表面的“├┤”行包装后，还需对另一表面进行封粘，具体要求如下。
+
+								4.快件包装主要事项
+
+								4.1禁止使用一切报刊类物品作为快件的外包装，如报纸、海报、书刊、杂志等；严禁使用各种有色垃圾袋和容易破损、较薄的类似垃圾袋的包装物。
+
+								4.2对于价值较高的快件采用包装箱进行包装，包装时应使用缓冲材料。
+
+								4.3对于一票多件的快件，如果是国际快件，因海关严禁寄递物品多件捆扎寄递，所以必须按照一票多件操作规范进行操作。如果是国内互寄快件，单票重量不超1kg,且每件快件外包装形状相同，体积最大的快件一侧面积小于运单的，可以多件捆扎寄递，但同时必须在连体快件上批注运单号码，并将连体快件捆扎牢固。凡是两件或两件以上合装的快件，必须要用打包带加固。例如有三个同规格鞋盒子一起寄递时，可将三个盒子进行捆扎牢固，作为一票快件寄递。
+
+								4.4对于重复利用的旧包装材料，均必须清除原有运单及其他特殊的快件标记后方可使用，以避免因旧包装内容而影响快件的流转。
+
+								5.处理场地快件包装破损及不合格包装的常见情况
+
+								5.1包装箱有2cm以上的破洞或有明显的撕裂，快件内件容易脱落或被损坏。
+
+								5.2快件的包装箱有水湿、油污现象。 外包装箱被压垮、折断，如纸箱包装的家用电器（零部件）的快件经常发生包装被压垮、折断。
+
+								5.3在搬运过程中，虽外包装完好，但能感觉到快件内容品之间有摩擦、碰撞，并伴有碰撞音或有异常已破坏的声音。
+
+								5.4快件外包装未损坏，但有异常的气味或强烈的刺激气味。 快件外包装为已使用过的旧包装物，表面留有旧运单、标签、地址等，或旧运单、标签、地址去除得不彻底。
+
+								5.5快件的外包装为海报或塑料等易破损包装物。
+
+								6.包装的注意事项示例
+
+								6.1绳索、带子，对于使用绳索或带子捆扎施封的包装，必须去除这些绳索或带子，使用胶带进行封箱。
+
+								6.2胶带，对于使用玻璃纸胶带、医用胶布施封的包装，应去除该施封胶带并使用专用胶带进行封箱。
+
+								6.3使用过的箱体，使用有压垮痕迹、有破洞及有油渍、水渍的使用过的箱子对货物进行包装，应将其货物或连同箱子一起置入合格之外包装内；对于可接受的使用过的包装，必须去除包装外侧所有标签、号码、地址信息及一切有可能影响操作人员识别的粘贴物品和信息。
+
+								6.4易破损材料，对于使用易破损材料作为外包装的货物，如保丽龙箱、塑料等，应将其置入合格之外包装内。
+
+								6.5内件保护，收到包装好的物品时，稍加晃动，如能听到内件发出相互碰撞之声音，应向客户提出检查包裹要求，并建议客户使用足够的填充物，以适合长途转运操作，避免内容物相互碰撞破损。
+
+								6.6易碎物品，对于瓷器和玻璃制品，必须在包装内部六个面加垫防震材料，且箱体内每一件瓷器或玻璃制品必须单独使用泡沫或其他材料进行包装。
+
+								6.7小件物品，大量小件内容物零散至于包裹中，如螺栓、螺钉、螺母、钉子等物品，必须以麻布袋包裹后，再置入合格之外包装中。
+
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	<!--modal-->
+	<!-- js -->
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<!-- //js-->
+	<!-- start-smooth-scrolling -->
+	<script  src="js/move-top.js"></script>
+	<script  src="js/easing.js"></script>
+	<script> 
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+	<!-- smooth-scrolling-of-move-up -->
+	<script> 
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<script  src="js/SmoothScroll.min.js"></script>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	 <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

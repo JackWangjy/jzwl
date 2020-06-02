@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.mapper.VipInfoMapper">
+
+    <resultMap id="resultListUser" type="com.it.domian.VipInfo">
+        <id property="id" column="id"></id>
+        <result property="name" column="name"></result>
+        <result property="sex" column="sex"></result>
+        <result property="phonenumber" column="phonenumber"></result>
+        <result property="createtime" column="createtime"></result>
+        <association property="vipAccount" column="vip_account_id" select="com.it.mapper.AccountMapper.getAc"
+                     javaType="com.it.domian.VipAccount"/>
+    </resultMap>
+
+    <select id="getAllUser" resultMap="resultListUser">
+        select * from tbl_vip_info;
+    </select>
+</mapper>

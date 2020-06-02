@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head><!-- 该网页用于用户查询问题咨询信息 -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="zxz/css/font.css">
+        <link rel="stylesheet" href="zxz/css/xadmin.css">
+        <script src="zxz/lib/layui/layui.js" charset="utf-8"></script>
+        <script type="text/javascript" src="zxz/js/xadmin.js"></script>
+        <!-- <script type="text/javascript" src="./js/admin_manage.js"></script> -->
+        <!--[if lt IE 9]>
+          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    	<!-- 顶部开始 -->
+        <div class="container">
+            <div class="logo">
+                <a href="index">首页</a></div>
+        </div>
+        <!-- 顶部结束 -->
+        <img src="zxz/images/question1.jpg" STYLE="width: 100%"></br></br></br>
+        <font size="8" color="orange">&emsp;&emsp;&emsp;&nbsp;&nbsp;常见问题&emsp;&nbsp;&nbsp;&nbsp;</font>
+        </br></br></br>
+        
+		<div class="layui-collapse" lay-filter="collapseFilter" lay-accordion align="center">
+		<div class="layui-row layui-col-space20">
+		
+			<div class="layui-col-md1"></div>
+			
+        	<div class="layui-col-md3">
+				<table border="1" width="80%" bgcolor="white">
+					<tr align="leftr" height="50px">
+						<td>
+							<div class="layui-colla-item">
+								<h2 class="layui-colla-title">&emsp;·&emsp;网点上班时间</h2>
+								<div class="layui-colla-content">
+									<font size="4" color="blue">
+										周一到周五早上10：00-18：00；星期六、日休息，对公休业。
+									</font>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr align="leftr" height="50px">
+						<td>
+							<div class="layui-colla-item">
+								<h2 class="layui-colla-title">&emsp;·&emsp;运费时效查询</h2>
+								<div class="layui-colla-content">
+									<a href="inquireToll.html"><font size="4" color="blue">运费和时效查询请点击这里，选择原寄地和目的地进行查询</font></a></br>
+									<font size="4" color="blue">温馨提示：运费到付和寄付价格一样的</font></a>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr align="leftr" height="50px">
+						<td>
+							<div class="layui-colla-item">
+								<h2 class="layui-colla-title">&emsp;·&emsp;附近网点在哪?</h2>
+								<div class="layui-colla-content">
+									<a href="search_website"><font size="4" color="blue">您只需点击这里，就可以查询到您就近的网点</font></a>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr align="leftr" height="50px">
+						<td>
+							<div class="layui-colla-item">
+								<h2 class="layui-colla-title">&emsp;·&emsp;优派是否需要收费?</h2>
+								<div class="layui-colla-content">
+									<font size="4" color="blue">优派不需收取任何费用</font>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="layui-col-md6" align="left">
+				<table border="0" width="100%">			
+					<tr height="50px" align="left">
+						<td>
+							<div class="demoTable">
+							    <div class="layui-inline">
+							        <input type="text" id="question" name="question" placeholder="请输入问题关键词" autocomplete="off" style="width:605px;height:45px" class="layui-input">
+							    </div>
+							    <button class="layui-btn layui-btn-lg layui-btn-normal" id="sreach" name="sreach" ><i class="layui-icon">&#xe615;</i></button>
+							</div>
+						</td>
+					</tr>
+				</table>
+				
+				<table bgcolor="white"><tr><td><table id="tbl_questionandanswer" lay-filter="tbl_questionandanswer"></table></td></tr></table>					
+			</div>
+		</div>
+		</div></br></br>
+		<p class="copy-right py-3">Copyright &copy; 2018.Company name All rights reserved.</p>
+    </body>
+
+    
+      <script>
+	      layui.use('table', function(){
+	        var table = layui.table;
+	
+  			table.render({
+	   			    elem: '#tbl_questionandanswer'
+	   			    ,height:550
+	   			    ,url: './questionQueryQuestion'
+	   			    ,id:'contenttable'
+	   			    ,limit:5
+	   			    ,limits:[5,10]
+	   			    ,page: false //开启分页
+	   			    ,cols: [
+	   			        		[ //表头
+	   			       {title: '<font size="5" color="green">常见问题咨询处</font>', width:645, style:'height:50px;',
+	   			        templet: '<div><font size="4" color="blue">&nbsp;{{d.question}}</font></div>'}
+	   			      			]
+				           ]
+	   		});
+
+			//监听行单击事件（单击事件为：rowDouble）
+			table.on('row(tbl_questionandanswer)', function(obj){
+			  var data = obj.data;
+			  
+			  layer.alert(JSON.stringify(data.answer), {  //data:{question:JSON.stringify(data.question)},  
+			    title: '当前问题的详细回答：'
+			  });
+			  
+			  
+			  //标注选中样式
+			  obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+			});  
+			
+        	$('#sreach').on('click', function () {
+		        // 搜索条件
+		        var question = $('#question').val();
+		        table.reload('contenttable', {
+		            method: 'post'
+		            , where: {'question': question,}
+		            , page: {
+		                curr: 1
+		            }
+		        });
+		    });
+		 });
+    </script>  
+</html>
